@@ -287,8 +287,7 @@ func (t *Transport) updateToken(tok *Token, v url.Values) error {
 	if r.StatusCode != 200 {
 		return OAuthError{"updateToken", r.Status}
 	}
-
-	fmt.Println("r.ContentLength",r.ContentLength)
+	
 	body := make([]byte, r.ContentLength)
 	_, err = r.Body.Read(body)
 	if err != nil {
